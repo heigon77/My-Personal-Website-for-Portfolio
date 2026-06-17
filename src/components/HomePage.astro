@@ -1,0 +1,127 @@
+---
+import Socials from './Socials.astro';
+import { useTranslations, type Lang } from '../i18n/ui';
+import { profile, education, projects, publications, social } from '../data/content';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<!-- ============== HERO ============== -->
+<section class="hero" id="top">
+  <div class="container">
+    <p class="eyebrow">{profile.role[lang]}</p>
+    <h1>{profile.name}</h1>
+    <p class="tagline">{profile.tagline[lang]}</p>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#projects">{t('hero.cta.projects')}</a>
+      <a class="btn btn-ghost" href="#contact">{t('hero.cta.contact')}</a>
+    </div>
+
+    <Socials />
+  </div>
+</section>
+
+<!-- ============== ABOUT + EDUCATION ============== -->
+<section id="about" class="about">
+  <div class="container">
+    <h2 class="section-title">{t('about.title')}</h2>
+    {profile.about[lang].map((para) => <p>{para}</p>)}
+
+    <div class="education">
+      <h3>{t('about.education')}</h3>
+      {
+        education.map((e) => (
+          <div class="edu-item">
+            <div>
+              <div class="degree">{e.degree[lang]}</div>
+              <div class="school">{e.school[lang]}</div>
+            </div>
+            <div class="period">{e.period}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ============== PROJECTS ============== -->
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title">{t('projects.title')}</h2>
+    <p class="section-subtitle">{t('projects.subtitle')}</p>
+
+    <div class="cards">
+      {
+        projects.map((p) => (
+          <article class="card">
+            <h3>{p.name}</h3>
+            <p>{p.description[lang]}</p>
+            <div class="tags">
+              {p.tags.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+            <div class="card-links">
+              {p.repo && (
+                <a href={p.repo} target="_blank" rel="noopener">
+                  {t('projects.code')} ↗
+                </a>
+              )}
+              {p.demo && (
+                <a href={p.demo} target="_blank" rel="noopener">
+                  {t('projects.demo')} ↗
+                </a>
+              )}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ============== PUBLICATIONS ============== -->
+{
+  publications.length > 0 && (
+    <section id="publications">
+      <div class="container">
+        <h2 class="section-title">{t('publications.title')}</h2>
+        <p class="section-subtitle">{t('publications.subtitle')}</p>
+
+        <div class="pub-list">
+          {publications.map((pub) => (
+            <div class="pub-item">
+              <div class="pub-title">{pub.title}</div>
+              <div class="pub-meta">
+                {pub.authors} · {pub.venue[lang]} · <span class="year">{pub.year}</span>
+                {pub.link && (
+                  <>
+                    {' · '}
+                    <a href={pub.link} target="_blank" rel="noopener">
+                      {t('publications.read')} ↗
+                    </a>
+                  </>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<!-- ============== CONTACT ============== -->
+<section id="contact" class="contact">
+  <div class="container">
+    <h2 class="section-title">{t('contact.title')}</h2>
+    <p class="section-subtitle">{t('contact.subtitle')}</p>
+    <a class="btn btn-primary" href={`mailto:${social.email}`}>{t('contact.email')}</a>
+    <Socials />
+  </div>
+</section>
