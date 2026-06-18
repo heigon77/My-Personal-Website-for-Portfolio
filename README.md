@@ -36,12 +36,13 @@ copie um item da lista e troque os campos.
 
 ### ⚠️ Placeholders que VOCÊ precisa preencher
 
-- [ ] Confirmar o **nome** (deduzi `Heigon Soldera`) em `content.ts → profile.name`
-- [ ] **LinkedIn** real em `content.ts → social.linkedin`
-- [ ] **Lattes** real (URL do seu currículo) em `content.ts → social.lattes`
-- [ ] **Formação** real em `content.ts → education`
-- [ ] **Publicações** reais em `content.ts → publications` (ou apague a lista se não quiser a seção)
-- [ ] Revisar/ajustar as descrições dos projetos e a bio
+Já preenchido a partir do seu `curriculo.tex`: nome, cargo, bio, formação, LinkedIn, Lattes, email,
+projeto VisionArt (com gif, links e aviso de cold start) e a publicação do IEEE. Falta só:
+
+- [ ] **Coautores** do artigo em `content.ts → publications` (hoje está `Heigon Soldera et al.`)
+- [ ] Descrições reais de **AI Learning Languages** e **IHC** (estão com texto provisório)
+- [ ] (Opcional) Adicionar mais projetos do currículo (ex.: Cerâmica/Sírius, Futebol de Robôs)
+- [ ] (Opcional) Otimizar o gif do demo — tem 17 MB; converter pra `.mp4`/`.webm` deixa o site bem mais rápido
 
 ---
 
