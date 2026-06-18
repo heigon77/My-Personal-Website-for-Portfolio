@@ -16,8 +16,8 @@ export const profile = {
     pt: 'Cientista de Dados & Engenheiro de ML · Doutorando',
   } satisfies Localized,
   tagline: {
-    en: 'I build machine learning systems across computer vision, generative AI and speech — taking models from research all the way to production.',
-    pt: 'Construo sistemas de machine learning em visão computacional, IA generativa e fala — levando modelos da pesquisa até a produção.',
+    en: 'I build machine learning systems across computer vision, generative AI and speech, taking models from research all the way to production.',
+    pt: 'Construo sistemas de machine learning em visão computacional, IA generativa e fala, levando modelos da pesquisa até a produção.',
   } satisfies Localized,
   location: {
     en: 'Paulínia, SP — Brazil',
@@ -25,14 +25,14 @@ export const profile = {
   } satisfies Localized,
   about: {
     en: [
-      "I'm a Data Scientist and Machine Learning Engineer with hands-on, end-to-end experience in Computer Vision, Speech Recognition (ASR), Deep Learning and Data Engineering. I enjoy turning real-world problems into models that actually reach production — owning the full cycle, from data collection and processing to training, optimization and deployment.",
-      "On the academic side, I completed a master's and am now pursuing a PhD in Computer Science at Unicamp, where I research generative AI for image synthesis and transformation — focusing on diffusion models, synthetic data generation and domain adaptation.",
-      'Today I work as a Machine Learning Engineer at Instituto SiDi, building on-device speech recognition systems, after approximately 4 years in data science and AI at CI&T — where I worked with LLMs, distributed data processing and production ML pipelines.',
+      "I'm a Data Scientist and Machine Learning Engineer with 6 years of professional experience, working across Computer Vision, Speech Recognition (ASR), Deep Learning and Data Engineering. I enjoy turning real problems into models that reach production, owning the full cycle from data collection and processing to training, optimization and deployment.",
+      'At CI&T I worked on data science and AI: building solutions with LLMs and LangChain, running distributed data processing with PySpark and Databricks, and shipping machine learning pipelines to production. At SiDi I now build on-device speech recognition (ASR) systems.',
+      "On the academic side, I hold a master's and am pursuing a PhD in Computer Science at Unicamp, researching generative AI for image synthesis and transformation (diffusion models, synthetic data generation and domain adaptation).",
     ],
     pt: [
-      'Sou Cientista de Dados e Engenheiro de Machine Learning, com experiência prática de ponta a ponta em Visão Computacional, Reconhecimento de Fala (ASR), Deep Learning e Engenharia de Dados. Gosto de transformar problemas reais em modelos que de fato chegam à produção — cuidando de todo o ciclo, da coleta e tratamento dos dados ao treinamento, otimização e deploy.',
-      'No lado acadêmico, concluí o mestrado e curso o doutorado em Ciência da Computação na Unicamp, onde pesquiso IA generativa para síntese e transformação de imagens — com foco em modelos de difusão, geração de dados sintéticos e adaptação de domínio.',
-      'Hoje atuo como Engenheiro de Machine Learning no Instituto SiDi, desenvolvendo sistemas de reconhecimento de fala embarcados, após aproximadamente 4 anos em ciência de dados e IA na CI&T — onde trabalhei com LLMs, processamento distribuído de dados e pipelines de ML em produção.',
+      'Sou Cientista de Dados e Engenheiro de Machine Learning com 6 anos de experiência profissional, atuando em Visão Computacional, Reconhecimento de Fala (ASR), Deep Learning e Engenharia de Dados. Gosto de transformar problemas reais em modelos que chegam à produção, cuidando de todo o ciclo, da coleta e tratamento dos dados ao treinamento, otimização e deploy.',
+      'Na CI&T atuei com ciência de dados e IA: construí soluções com LLMs e LangChain, fiz processamento distribuído de dados com PySpark e Databricks e levei pipelines de machine learning à produção. Na SiDi, hoje desenvolvo sistemas de reconhecimento de fala (ASR) embarcados.',
+      'No lado acadêmico, tenho mestrado e curso o doutorado em Ciência da Computação na Unicamp, pesquisando IA generativa para síntese e transformação de imagens (modelos de difusão, geração de dados sintéticos e adaptação de domínio).',
     ],
   } as Record<Lang, string[]>,
 };
@@ -81,6 +81,15 @@ export const social = {
   email: 'heigonsoldera77@gmail.com',
 };
 
+export type Language = { name: Localized; level: Localized };
+
+export const languages: Language[] = [
+  { name: { en: 'Portuguese', pt: 'Português' }, level: { en: 'Native', pt: 'Nativo' } },
+  { name: { en: 'English', pt: 'Inglês' }, level: { en: 'Advanced', pt: 'Avançado' } },
+  { name: { en: 'Spanish', pt: 'Espanhol' }, level: { en: 'Intermediate', pt: 'Intermediário' } },
+  { name: { en: 'French', pt: 'Francês' }, level: { en: 'Beginner', pt: 'Iniciante' } },
+];
+
 // Tipos de link exibidos como "balões" em cada projeto.
 // O rótulo é traduzido em src/i18n/ui.ts (chaves link.*).
 export type LinkKind =
@@ -111,8 +120,8 @@ export const projects: Project[] = [
     tags: ['Computer Vision', 'Generative AI', 'YOLOv8', 'Angular', 'FastAPI', 'ONNX'],
     media: '/projects/visionart-demo.gif',
     description: {
-      en: 'A full-stack platform that blends computer vision and generative AI to read artworks — detecting objects, classifying the artistic style, and writing a poem inspired by what it sees.',
-      pt: 'Plataforma full-stack que une visão computacional e IA generativa para "ler" obras de arte — detectando objetos, classificando o estilo artístico e escrevendo um poema inspirado no que vê.',
+      en: 'A full-stack platform that blends computer vision and generative AI to read artworks: it detects objects, classifies the artistic style, and writes a poem inspired by what it sees.',
+      pt: 'Plataforma full-stack que une visão computacional e IA generativa para "ler" obras de arte: detecta objetos, classifica o estilo artístico e escreve um poema inspirado no que vê.',
     },
     highlights: {
       en: [
@@ -145,30 +154,31 @@ export const projects: Project[] = [
     tags: ['Recommender Systems', 'Graph Neural Net', 'LightGCN', 'PyTorch', 'Angular', 'FastAPI'],
     media: '/projects/food-demo.gif',
     description: {
-      en: 'Pick a few foods and get combinations that actually go well together. A deep recommender — a LightGCN graph neural network — learns ingredient complementarity from ~240k RecipeNLG recipes. Built end-to-end like Vision Art AI, across separate training, backend and frontend repos.',
-      pt: 'Escolha alguns alimentos e receba combinações que de fato harmonizam. Um recomendador profundo — uma rede neural em grafo (LightGCN) — aprende a complementaridade entre ingredientes a partir de ~240k receitas do RecipeNLG. Construído ponta a ponta como o Vision Art AI, em repositórios separados de treino, backend e frontend.',
+      en: 'Pick a few foods and get combinations that actually go well together. A deep recommender, a LightGCN graph neural network, learns ingredient complementarity from around 240k RecipeNLG recipes. The system is built end to end, split into separate training, backend and frontend repositories.',
+      pt: 'Escolha alguns alimentos e receba combinações que de fato harmonizam. Um recomendador profundo, uma rede neural em grafo (LightGCN), aprende a complementaridade entre ingredientes a partir de cerca de 240k receitas do RecipeNLG. O sistema é construído de ponta a ponta, dividido em repositórios separados de treino, backend e frontend.',
     },
     highlights: {
       en: [
-        'LightGCN (graph neural net) trained with a BPR ranking loss on the recipe–ingredient graph — learns complementarity, not substitutes.',
+        'LightGCN (graph neural net) trained with a BPR ranking loss on the recipe-ingredient graph, learning complementarity rather than substitutes.',
         'Popularity-corrected negative sampling so pantry staples stop dominating; ingredient canonicalization to merge variants.',
         'Trained on GPU (PyTorch/CUDA); FastAPI backend on a Hugging Face Space (NumPy-only serving); Angular frontend on Cloudflare.',
       ],
       pt: [
-        'LightGCN (rede neural em grafo) treinada com perda de ranking BPR no grafo receita–ingrediente — aprende complementaridade, não substitutos.',
+        'LightGCN (rede neural em grafo) treinada com perda de ranking BPR no grafo receita-ingrediente, aprendendo complementaridade em vez de substitutos.',
         'Amostragem negativa corrigida por popularidade pra staples não dominarem; canonicalização de ingredientes pra mesclar variantes.',
         'Treino em GPU (PyTorch/CUDA); backend FastAPI num Hugging Face Space (serving só com NumPy); frontend Angular no Cloudflare.',
       ],
     },
     note: {
-      en: "The demo's backend runs on a free Hugging Face Space that sleeps after inactivity — the first suggestion may take ~30–60s for a \"cold start\" while it wakes up.",
-      pt: 'O backend da demo roda em um Hugging Face Space gratuito que entra em suspensão (sleep) após inatividade — a primeira sugestão pode levar ~30–60s de "cold start" (inicialização a frio) enquanto ele reinicia.',
+      en: 'The demo backend runs on a free Hugging Face Space that sleeps after inactivity. The first suggestion may take around 30 to 60s for a "cold start" while it wakes up.',
+      pt: 'O backend da demo roda em um Hugging Face Space gratuito que entra em suspensão (sleep) após inatividade. A primeira sugestão pode levar de 30 a 60s por causa do "cold start" (inicialização a frio) enquanto ele reinicia.',
     },
     links: [
       { kind: 'demo', url: 'https://food-recommendation.heigonsoldera77.workers.dev/' },
       { kind: 'frontend', url: 'https://github.com/heigon77/Food-Recommendation-Frontend' },
       { kind: 'backend', url: 'https://huggingface.co/spaces/heigon77/Food-Recommendation-Backend' },
       { kind: 'training', url: 'https://github.com/heigon77/Food-Recommendation-Training' },
+      { kind: 'full', url: 'https://github.com/heigon77/Food-Recommendation' },
     ],
   },
   {
@@ -176,8 +186,8 @@ export const projects: Project[] = [
     tags: ['Data Science', 'NLP', 'Sentiment Analysis', 'Python', 'Plotly'],
     media: '/projects/soulslike-demo.gif',
     description: {
-      en: "A Data Science & NLP tool that collects, analyzes and visualizes community sentiment around soulslike games, using the public Steam Reviews and Reddit APIs — no API keys required.",
-      pt: 'Ferramenta de Ciência de Dados & NLP que coleta, analisa e visualiza o sentimento da comunidade sobre jogos soulslike, usando as APIs públicas de reviews da Steam e do Reddit — sem precisar de chaves.',
+      en: 'A Data Science & NLP tool that collects, analyzes and visualizes community sentiment around soulslike games, using the public Steam Reviews and Reddit APIs, with no API keys required.',
+      pt: 'Ferramenta de Ciência de Dados & NLP que coleta, analisa e visualiza o sentimento da comunidade sobre jogos soulslike, usando as APIs públicas de reviews da Steam e do Reddit, sem precisar de chaves.',
     },
     highlights: {
       en: [

@@ -1,7 +1,7 @@
 ---
 import Socials from './Socials.astro';
 import { useTranslations, type Lang } from '../i18n/ui';
-import { profile, education, projects, publications, social } from '../data/content';
+import { profile, education, languages, projects, publications, social } from '../data/content';
 
 interface Props {
   lang: Lang;
@@ -74,6 +74,20 @@ function mainRepo(p: (typeof projects)[number]) {
           </div>
         ))
       }
+    </div>
+
+    <div class="languages">
+      <h3>{t('about.languages')}</h3>
+      <ul class="lang-list">
+        {
+          languages.map((l) => (
+            <li>
+              <span class="lang-name">{l.name[lang]}</span>
+              <span class="lang-level">{l.level[lang]}</span>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </div>
 </section>
