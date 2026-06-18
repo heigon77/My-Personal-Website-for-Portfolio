@@ -1,23 +1,37 @@
-# Portfólio — Heigon Soldera
+# Portfolio — Heigon Soldera
 
-Site pessoal bilíngue (🇬🇧 inglês principal + 🇧🇷 português), feito com [Astro](https://astro.build).
-Tem seções de **Sobre / Formação**, **Projetos**, **Publicações** e **Contato**, com links para
-GitHub, LinkedIn e Lattes, tema claro/escuro e seletor de idioma.
+My bilingual personal website (🇬🇧 English primary + 🇧🇷 Portuguese), built with
+[Astro](https://astro.build). It has **About / Education**, **Projects**,
+**Publications** and **Contact** sections, with links to GitHub, LinkedIn and Lattes,
+a light/dark theme and a language switch.
 
-- Inglês: `/` &nbsp;•&nbsp; Português: `/pt/`
+- English: `/` &nbsp;•&nbsp; Portuguese: `/pt/`
 
 ---
 
-## 🚀 Rodar localmente
-
-> O Node foi instalado em `~/.local/node` e já está no seu `~/.bashrc`.
-> Se `node -v` não funcionar num terminal novo, rode: `export PATH="$HOME/.local/node/bin:$PATH"`
+## 🚀 Run locally
 
 ```bash
-npm install      # só na primeira vez
-npm run dev      # servidor de desenvolvimento → http://localhost:4321
-npm run build    # gera o site estático em dist/
-npm run preview  # pré-visualiza o build de produção
+npm install      # first time only
+npm run dev      # dev server → http://localhost:4321
+npm run build    # static build in dist/
+npm run preview  # preview the production build
 ```
 
----
+## ✏️ Edit the content
+
+Almost everything lives in two files (no need to touch HTML):
+
+- [`src/data/content.ts`](src/data/content.ts) — name, bio, education, languages,
+  social links, projects and publications (each text has `en` and `pt`).
+- [`src/i18n/ui.ts`](src/i18n/ui.ts) — interface strings (buttons, section titles).
+
+## 🌐 Deploy (Cloudflare Pages)
+
+Push to GitHub, then on **Cloudflare → Workers & Pages → Create → Pages → Connect to Git**:
+
+- **Framework preset:** `Astro`
+- **Build command:** `npm run build`
+- **Build output directory:** `dist`
+
+Every `git push` redeploys automatically.

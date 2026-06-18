@@ -116,6 +116,37 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: 'Chess Vision (MSc project)',
+    tags: ['Computer Vision', 'Deep Learning', 'PyTorch', 'ONNX', 'Stockfish', 'Angular', 'FastAPI'],
+    media: '/projects/chess-demo.gif',
+    description: {
+      en: 'My Master\'s project, brought online. Upload a photo of a chess board and it digitizes the position to a FEN, then you play it against models that predict the move a human would make (CNN trained on Lichess games) combined with Stockfish. Note: the models are quantized to INT8 so they run on a free CPU Hugging Face Space in reasonable time, so the prediction quality is lower than the original full-precision models.',
+      pt: 'Meu projeto de mestrado, colocado online. Você envia a foto de um tabuleiro de xadrez, o sistema digitaliza a posição em um FEN, e aí você joga contra modelos que predizem o lance que um humano faria (CNN treinada em partidas do Lichess) combinados com o Stockfish. Obs.: os modelos são quantizados em INT8 para rodar em um Hugging Face Space gratuito de CPU em tempo hábil, então a qualidade das predições é menor do que a dos modelos originais em precisão cheia.',
+    },
+    highlights: {
+      en: [
+        'Board digitization: fixed crop, Canny + Hough grid detection, 64 square crops classified by a MobileNetV2 into a FEN.',
+        'Human move prediction: a piece-type CNN plus six destination-square CNNs, with black handled by mirroring, combined with a Stockfish hybrid.',
+        'The original ~444 MB of PyTorch weights quantized to ~47 MB of ONNX INT8 for fast CPU inference; positions are auto-repaired to be legal.',
+      ],
+      pt: [
+        'Digitalização: crop fixo, detecção de grade com Canny + Hough, 64 recortes de casa classificados por um MobileNetV2 em um FEN.',
+        'Predição de lance humano: uma CNN de tipo de peça e seis CNNs de casa de destino, com pretas tratadas por espelhamento, combinadas com um híbrido com Stockfish.',
+        'Os ~444 MB originais de pesos PyTorch quantizados em ~47 MB de ONNX INT8 para inferência rápida em CPU; posições inválidas são corrigidas automaticamente.',
+      ],
+    },
+    note: {
+      en: 'The demo backend runs on a free Hugging Face Space that sleeps after inactivity. The first request may take around 30 to 60s for a "cold start" while it wakes up.',
+      pt: 'O backend da demo roda em um Hugging Face Space gratuito que entra em suspensão (sleep) após inatividade. A primeira requisição pode levar de 30 a 60s por causa do "cold start" enquanto ele reinicia.',
+    },
+    links: [
+      { kind: 'demo', url: 'https://chess-vision.heigonsoldera77.workers.dev/' },
+      { kind: 'frontend', url: 'https://github.com/heigon77/Chess-Vision-Frontend' },
+      { kind: 'backend', url: 'https://huggingface.co/spaces/heigon77/Chess-Vision-Backend' },
+      { kind: 'full', url: 'https://github.com/heigon77/Master-of-Science-Degree-Project' },
+    ],
+  },
+  {
     name: 'Vision Art AI',
     tags: ['Computer Vision', 'Generative AI', 'YOLOv8', 'Angular', 'FastAPI', 'ONNX'],
     media: '/projects/visionart-demo.gif',
