@@ -232,7 +232,10 @@ export const projects: Project[] = [
         '11 gráficos interativos em Plotly exportados para um dashboard HTML autossuficiente.',
       ],
     },
-    links: [{ kind: 'code', url: 'https://github.com/heigon77/Soulslike-Sentiment-Analyzer' }],
+    links: [
+      { kind: 'demo', url: 'https://soulslike-sentiment-analyzer.heigonsoldera77.workers.dev/' },
+      { kind: 'code', url: 'https://github.com/heigon77/Soulslike-Sentiment-Analyzer' },
+    ],
   },
 ];
 
